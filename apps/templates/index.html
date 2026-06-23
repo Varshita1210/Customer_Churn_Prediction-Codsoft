@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Customer Churn Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Bank Customer Churn Prediction</h1>
+
+    <form action="/predict" method="post">
+
+        <input type="number" name="CreditScore" placeholder="Credit Score" required>
+
+        <select name="Gender">
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select>
+
+        <input type="number" name="Age" placeholder="Age" required>
+
+        <input type="number" name="Tenure" placeholder="Tenure" required>
+
+        <input type="number" step="any" name="Balance" placeholder="Balance" required>
+
+        <input type="number" name="NumOfProducts" placeholder="Number of Products" required>
+
+        <select name="HasCrCard">
+            <option value="1">Has Credit Card</option>
+            <option value="0">No Credit Card</option>
+        </select>
+
+        <select name="IsActiveMember">
+            <option value="1">Active Member</option>
+            <option value="0">Inactive Member</option>
+        </select>
+
+        <input type="number" step="any" name="EstimatedSalary" placeholder="Estimated Salary" required>
+
+        <label>Germany?</label>
+        <select name="Geography_Germany">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>Spain?</label>
+        <select name="Geography_Spain">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    <h2>{{ prediction_text }}</h2>
+
+</div>
+
+</body>
+</html>
